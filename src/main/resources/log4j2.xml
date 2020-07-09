@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration status="info">
+    <Properties>
+        <property name="charset">UTF-8</property>
+        <property name="pattern">[%d{yyyy-MM-dd HH:mm:ss.SSS}][%-5p] [%t] [%c{1}:%M %L] %m %n</property>
+    </Properties>
+    <appenders>
+        <!--输出控制台的配置-->
+        <console name="Console" target="SYSTEM_OUT">
+            <!--输出日志的格式-->
+            <PatternLayout pattern="${pattern}" charset="${charset}" />
+        </console>
+    </appenders>
+    <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
+    <loggers>
+        <!-- 全局设置级别，不指定默认为error 注意：（该设置如果没有，日志无法显示）-->
+        <root level="info">
+            <appender-ref ref="Console" />
+        </root>
+    </loggers>
+</configuration>
